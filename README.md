@@ -1,3 +1,3 @@
 # YTU Orienteering
 
-YTU orienteering team mobile app
+YTU orienteering team mobile app.
