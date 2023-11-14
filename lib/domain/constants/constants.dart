@@ -38,6 +38,7 @@ class DrawerDefinitions {
   static const String achievements = "Başarılarımız";
   static const String aboutUs = "Hakkımızda";
   static const String athletes = "Sporcularımız";
+  static const String orienteering = "Oryantiring";
 }
 
 class AthletesDefinitions {
