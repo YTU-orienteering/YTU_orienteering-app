@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
-import '../firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-class FirebaseRepository{
+import '../firebase_options.dart';
 
+class FirebaseRepository {
   FirebaseRepository();
 
   initializeFirebase() async {
@@ -20,14 +20,11 @@ class FirebaseRepository{
     await ref.set(value);
   }
 
-  Future<void> writeWithCallBack(String path, Map<String, dynamic> value) async {
-    FirebaseDatabase.instance
-        .ref(path)
-        .set(value)
-        .then((_) {
+  Future<void> writeWithCallBack(
+      String path, Map<String, dynamic> value) async {
+    FirebaseDatabase.instance.ref(path).set(value).then((_) {
       print("Successful");
-    })
-        .catchError((error) {
+    }).catchError((error) {
       print("There is a problem : " + error);
     });
   }
