@@ -25,7 +25,7 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
       length: 8, // Number of tabs
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Orienteering Page'),
+          title: Text(DrawerDefinitions.orienteering),
           bottom: TabBar(
             isScrollable: true, // Set this to true if tabs don't fit
             tabs: [
