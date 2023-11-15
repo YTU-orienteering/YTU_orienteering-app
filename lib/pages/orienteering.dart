@@ -52,7 +52,7 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
             SingleChildScrollView(child: ControlDefinitionsExample()),
             SingleChildScrollView(child: CompassUse()),
             SingleChildScrollView(child: Articles()),
-            SingleChildScrollView(child: Links()),
+            Links(),
             SingleChildScrollView(child: Trainings()),
             SingleChildScrollView(child: FAQ())
           ],
