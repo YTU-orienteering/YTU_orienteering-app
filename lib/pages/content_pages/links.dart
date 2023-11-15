@@ -10,6 +10,7 @@ class Links extends StatelessWidget {
         children: <Widget>[
           ExpansionTile(
             title: Text('Bilgilendirme'),
+            initiallyExpanded: true,
             children: <Widget>[
               ListTile(
                 title: Text('IOG'),
@@ -19,6 +20,7 @@ class Links extends StatelessWidget {
           ),
           ExpansionTile(
             title: Text('Kısayollar'),
+            initiallyExpanded: true,
             children: <Widget>[
               ListTile(
                 title: Text('IOG Kayıt'),
@@ -32,6 +34,7 @@ class Links extends StatelessWidget {
           ),
           ExpansionTile(
             title: Text('Oyunlar'),
+            initiallyExpanded: true,
             children: <Widget>[
               ListTile(
                 title: Text('Oryantiring Bilgi Oyunu'),
