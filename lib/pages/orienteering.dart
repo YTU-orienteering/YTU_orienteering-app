@@ -1,6 +1,14 @@
+import 'package:deneme_17_ekim/pages/content_pages/articles.dart';
+import 'package:deneme_17_ekim/pages/content_pages/compass_use.dart';
 import 'package:flutter/material.dart';
 import 'package:deneme_17_ekim/widgets/drawer.dart';
 import 'package:deneme_17_ekim/domain/constants/constants.dart';
+import 'package:deneme_17_ekim/pages/content_pages/control_definitions.dart';
+import 'package:deneme_17_ekim/pages/content_pages/control_definitions_example.dart';
+import 'package:deneme_17_ekim/pages/content_pages/faq.dart';
+import 'package:deneme_17_ekim/pages/content_pages/links.dart';
+import 'package:deneme_17_ekim/pages/content_pages/trainings.dart';
+import 'package:deneme_17_ekim/pages/content_pages/what_is_orienteering.dart';
 
 class OrienteeringPage extends StatefulWidget {
   const OrienteeringPage({Key? key}) : super(key: key);
@@ -44,14 +52,14 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
         body: TabBarView(
           children: [
             // Replace these with your actual content widgets
-            Center(child: Text('Oryantiring Nedir? Content')),
-            Center(child: Text('Kontrol Tanımları Content')),
-            Center(child: Text('Kontrol Tanımları - Örnekler Content')),
-            Center(child: Text('Pusula Kullanımı Content')),
-            Center(child: Text('Yazılar Content')),
-            Center(child: Text('Bağlantılar Content')),
-            Center(child: Text('Eğitimler Content')),
-            Center(child: Text('SSS Content')),
+            WhatIsOrienteering(),
+            ControlDefinitions(),
+            ControlDefinitionsExample(),
+            CompassUse(),
+            Articles(),
+            Links(),
+            Trainings(),
+            FAQ()
           ],
         ),
       ),
