@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 
 class ControlDefinitions extends StatelessWidget {
+  ControlDefinitions({super.key});
+  final List<String> imagePaths = [
+    'assets/orienteering/control_definitions.jpg',
+    'assets/orienteering/symbols.jpg'
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Padding(
+    return ListView.builder(
+      itemCount: imagePaths.length,
+      itemBuilder: (context, index) {
+        return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
-            'assets/orienteering/control_definitions.jpg',
+            imagePaths[index],
             fit: BoxFit.cover,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            'assets/orienteering/symbols.jpg',
-            fit: BoxFit.cover,
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

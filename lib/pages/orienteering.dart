@@ -47,16 +47,17 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
         drawer: const MyDrawer(),
         body: TabBarView(
           children: [
-            SingleChildScrollView(child: WhatIsOrienteering()),
-            SingleChildScrollView(child: ControlDefinitions()),
-            SingleChildScrollView(child: ControlDefinitionsExample()),
-            SingleChildScrollView(child: CompassUse()),
-            SingleChildScrollView(child: Articles()),
+            WhatIsOrienteering(),
+            ControlDefinitions(),
+            ControlDefinitionsExample(),
+            CompassUse(),
+            Articles(),
             Links(),
-            SingleChildScrollView(child: Trainings()),
-            SingleChildScrollView(child: FAQ())
+            Trainings(),
+            FAQ()
           ],
         ),
+        backgroundColor: Colors.orange,
       ),
     );
   }
