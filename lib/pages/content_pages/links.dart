@@ -11,6 +11,7 @@ class Links extends StatelessWidget {
           ExpansionTile(
             title: Text('Bilgilendirme'),
             initiallyExpanded: true,
+            backgroundColor: Colors.orange,
             children: <Widget>[
               ListTile(
                 title: Text('IOG'),
@@ -33,8 +34,30 @@ class Links extends StatelessWidget {
             ],
           ),
           ExpansionTile(
+            title: Text('Haritalar'),
+            initiallyExpanded: true,
+            backgroundColor: Colors.orange,
+            children: <Widget>[
+              ListTile(
+                title: Text('Worldofo'),
+                onTap: () => _openLink(context,'http://omaps.worldofo.com/'),
+              ),
+            ],
+          ),
+          ExpansionTile(
+            title: Text('Eğitim'),
+            initiallyExpanded: true,
+            children: <Widget>[
+              ListTile(
+                title: Text('Oryantiring Bilgi Bankası'),
+                onTap: () => _openLink(context,'https://www.iog.org.tr/archive/egitim/'),
+              ),
+            ],
+          ),
+          ExpansionTile(
             title: Text('Oyunlar'),
             initiallyExpanded: true,
+            backgroundColor: Colors.orange,
             children: <Widget>[
               ListTile(
                 title: Text('Oryantiring Bilgi Oyunu'),
