@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class ControlDefinitions extends StatelessWidget {
   ControlDefinitions({super.key});
@@ -14,9 +15,11 @@ class ControlDefinitions extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            imagePaths[index],
-            fit: BoxFit.cover,
+          child: Center(
+            child: WidgetZoom(
+              heroAnimationTag: 'tag',
+              zoomWidget: Image.asset(imagePaths[index]),
+            ),
           ),
         );
       },
