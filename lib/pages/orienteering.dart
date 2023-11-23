@@ -1,5 +1,4 @@
 import 'package:deneme_17_ekim/domain/constants/constants.dart';
-import 'package:deneme_17_ekim/pages/content_pages/articles.dart';
 import 'package:deneme_17_ekim/pages/content_pages/compass_use.dart';
 import 'package:deneme_17_ekim/pages/content_pages/control_definitions.dart';
 import 'package:deneme_17_ekim/pages/content_pages/control_definitions_example.dart';
@@ -37,7 +36,6 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
               Tab(text: 'Kontrol Tanımları'),
               Tab(text: 'Kontrol Tanımları - Örnekler'),
               Tab(text: 'Pusula Kullanımı'),
-              Tab(text: 'Yazılar'),
               Tab(text: 'Bağlantılar'),
               Tab(text: 'Eğitimler'),
               Tab(text: 'SSS'),
@@ -51,7 +49,6 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
             ControlDefinitions(),
             ControlDefinitionsExample(),
             CompassUse(),
-            Articles(),
             Links(),
             Trainings(),
             FAQ()
