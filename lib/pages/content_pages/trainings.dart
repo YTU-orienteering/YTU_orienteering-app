@@ -32,9 +32,6 @@ class _TrainingsState extends State<Trainings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Training Videos'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
