@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter/services.dart'; // Import services to use SystemChrome
 
 class Trainings extends StatefulWidget {
   @override
@@ -40,6 +41,15 @@ class _TrainingsState extends State<Trainings> {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: YoutubePlayerBuilder(
+                onEnterFullScreen: () {
+                  // Hide all system overlays
+                  SystemChrome.setEnabledSystemUIMode(
+                      SystemUiMode.immersiveSticky);
+                },
+                onExitFullScreen: () {
+                  // Show status bar and navigation bar
+                  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+                },
                 player: YoutubePlayer(
                   controller: _controllers[index],
                   showVideoProgressIndicator: true,
