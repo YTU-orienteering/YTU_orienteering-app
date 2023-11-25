@@ -44,6 +44,7 @@ dependencies:
   widget_zoom: ^0.0.2
   chewie: ^1.7.1
   video_player: ^2.8.1
+  flutter_inappwebview: ^5.8.0
 
 dev_dependencies:
   flutter_test:
