@@ -1,82 +1,57 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter/services.dart'; // Import services to use SystemChrome
+import 'package:video_player/video_player.dart';
 
-class Trainings extends StatefulWidget {
+class Trainings extends StatelessWidget {
   @override
-  _TrainingsState createState() => _TrainingsState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: VideoApp(
+          videoUrl:
+              'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+        ),
+      ),
+    );
+  }
 }
 
-class _TrainingsState extends State<Trainings> {
-  // List of video IDs
-  final List<String> _videoIds = [
-    'zmNNxdLBaf8', // Example YouTube video ID
-    'P6EtYMHL7Wc', // Example YouTube video ID
-  ];
+class VideoApp extends StatefulWidget {
+  final String videoUrl;
 
-  late List<YoutubePlayerController> _controllers;
+  const VideoApp({Key? key, required this.videoUrl}) : super(key: key);
+
+  @override
+  _VideoAppState createState() => _VideoAppState();
+}
+
+class _VideoAppState extends State<VideoApp> {
+  late VideoPlayerController _videoPlayerController;
+  late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controllers = _videoIds.map<YoutubePlayerController>((videoId) {
-      return YoutubePlayerController(
-        initialVideoId: videoId,
-        flags: YoutubePlayerFlags(
-          autoPlay: false,
-          hideThumbnail: false,
-        ),
-      );
-    }).toList();
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      autoPlay: true,
+      looping: true,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
-          itemCount: _controllers.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: YoutubePlayerBuilder(
-                onEnterFullScreen: () {
-                  // Hide all system overlays
-                  SystemChrome.setEnabledSystemUIMode(
-                      SystemUiMode.immersiveSticky);
-                },
-                onExitFullScreen: () {
-                  // Show status bar and navigation bar
-                  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-                },
-                player: YoutubePlayer(
-                  controller: _controllers[index],
-                  showVideoProgressIndicator: true,
-                ),
-                builder: (context, player) {
-                  return Column(
-                    children: [
-                      // some widgets
-                      player,
-                      //some other widgets
-                    ],
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      ),
+    return Chewie(
+      controller: _chewieController,
     );
   }
 
   @override
   void dispose() {
-    // Dispose all controllers to avoid memory leaks
-    for (var controller in _controllers) {
-      controller.dispose();
-    }
+    _videoPlayerController.dispose();
+    _chewieController.dispose();
     super.dispose();
   }
 }
