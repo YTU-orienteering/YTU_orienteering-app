@@ -5,11 +5,26 @@ import 'package:video_player/video_player.dart';
 class Trainings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: VideoApp(
-          videoUrl:
-              'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            VideoApp(
+              videoUrl:
+                  'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+            ),
+            SizedBox(height: 20),
+            VideoApp(
+              videoUrl:
+                  'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+            ),
+            SizedBox(height: 20),
+            VideoApp(
+              videoUrl:
+                  'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+            ),
+          ],
         ),
       ),
     );
@@ -43,8 +58,11 @@ class _VideoAppState extends State<VideoApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Chewie(
-      controller: _chewieController,
+    return AspectRatio(
+      aspectRatio: 16 / 9, // Or adjust this ratio according to your needs
+      child: Chewie(
+        controller: _chewieController,
+      ),
     );
   }
 
