@@ -21,7 +21,7 @@ class ControlDefinitionsExample extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Center(
             child: WidgetZoom(
-              heroAnimationTag: 'tag',
+              heroAnimationTag: 'Hero',
               zoomWidget: Image.asset(imagePaths[index]),
             ),
           ),

@@ -25,7 +25,7 @@ class _OrienteeringPageState extends State<OrienteeringPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 8,
+      length: 7,
       child: Scaffold(
         appBar: AppBar(
           title: const Text(DrawerDefinitions.orienteering),
