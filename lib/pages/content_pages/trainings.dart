@@ -1,9 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:pod_player/pod_player.dart';
 
-class Trainings extends StatelessWidget {
-  late final InAppWebViewController? webViewController1;
-  late final InAppWebViewController? webViewController2;
+class Trainings extends StatefulWidget {
+  const Trainings({Key? key}) : super(key: key);
+
+  @override
+  State<Trainings> createState() => _PlayVideoFromNetworkState();
+}
+
+class _PlayVideoFromNetworkState extends State<Trainings> {
+  late final PodPlayerController controller;
+  late final PodPlayerController controller1;
+
+  @override
+  void initState() {
+    controller = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(
+        'https://www.youtube.com/embed/zmNNxdLBaf8',
+      ),
+    )..initialise();
+
+    controller1 = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(
+        'https://www.youtube.com/embed/P6EtYMHL7Wc',
+      ),
+      podPlayerConfig: const PodPlayerConfig(
+        autoPlay: false,
+      ),
+    )..initialise();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    controller1.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,29 +45,9 @@ class Trainings extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 16),
-          SizedBox(
-            height: 300, // Belirli bir yükseklik
-            child: InAppWebView(
-              initialUrlRequest: URLRequest(
-                url: Uri.parse('https://www.youtube.com/embed/zmNNxdLBaf8'),
-              ),
-              onWebViewCreated: (controller) {
-                webViewController1 = controller;
-              },
-            ),
-          ),
+          PodVideoPlayer(controller: controller),
           const SizedBox(height: 16),
-          SizedBox(
-            height: 300, // Belirli bir yükseklik
-            child: InAppWebView(
-              initialUrlRequest: URLRequest(
-                url: Uri.parse('https://www.youtube.com/embed/P6EtYMHL7Wc'),
-              ),
-              onWebViewCreated: (controller) {
-                webViewController2 = controller;
-              },
-            ),
-          ),
+          PodVideoPlayer(controller: controller1),
         ],
       ),
     );
