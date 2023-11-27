@@ -5,7 +5,7 @@ class FAQ extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           ExpansionTile(
             title: Text('Oryantiring nedir?'),
             children: <Widget>[
@@ -54,6 +54,7 @@ class FAQ extends StatelessWidget {
                       'Hayır, oryantiring ormanlık alanların yanı sıra parklar, kentsel alanlar ve dağlık bölgeler gibi farklı ortamlarda da yapılabilir. Harita ve parkur düzenlemesi yapılan alana göre farklılık gösterir.')),
             ],
           ),
+          SizedBox(height: 16)
         ],
       ),
     );
