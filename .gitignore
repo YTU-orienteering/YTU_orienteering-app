@@ -47,3 +47,7 @@ Thumbs.db
 *.mov
 *.wmv
 
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+

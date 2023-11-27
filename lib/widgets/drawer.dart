@@ -1,3 +1,4 @@
+import 'package:deneme_17_ekim/pages/orienteering.dart';
 import 'package:flutter/material.dart';
 
 import '../domain/constants/constants.dart';
@@ -68,6 +69,10 @@ class MyDrawer extends StatelessWidget {
           const MyDrawerItem(
             text: DrawerDefinitions.aboutUs,
             destination: AboutPage(),
+          ),
+          const MyDrawerItem(
+            text: DrawerDefinitions.orienteering,
+            destination: OrienteeringPage(),
           ),
           MyDrawerItem(
             text: DrawerDefinitions.athletes,
